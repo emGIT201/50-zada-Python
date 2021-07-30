@@ -279,3 +279,20 @@ print(max(A))
 print(A[-1]-A[0])
 #lub
 print(max(A)-min(A))
+
+# SprawdŸ i wypisz (True lub False) czy najwiêkszy element na liœcie A jest wiêkszy ni¿ liczba 99.
+
+A = [x**2 + 3 for x in range(10)]
+
+print(A)
+c=max(A)
+print(c)
+
+if c >99:
+    print(True)
+else:
+    print(False)
+#lub
+print(True if max(A) > 99 else False)
+
+#zadanie 18
