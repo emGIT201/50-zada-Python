@@ -1,0 +1,281 @@
+#zadanie 1
+
+#lista niepowtarzalnych elementów
+#do jej sprawdzania s³u¿y funkcja set
+A=[1,2,3,3,2,1,2,3] #[1,2,3]
+
+B=[]
+
+for element in A:
+    if element not in B:
+        B.append(element)
+print(B)
+
+#albo
+
+B=list(set(A))
+print(B)
+
+
+A=[1,1,1,1,2,2,2,3,3,3,4,5,78,3,6,2,5,3]
+print(f'Lista A sk³ada siê z {len(A)} elementów')
+print('\n')
+print(f'Lista A: {A}')
+B=list(set(A))
+print(f'Lista B: {B}')
+print('\n')
+print(f'Lista B sk³ada siê z {len(B)} elementów')
+
+#zadanie 2
+#modyfikacja string
+#string s¹ niemodyfikowalne, listê mo¿na modyfikowaæ
+#aby zmodyfikowaæ string trzeba go najpierw zamieniæ na listê a póŸniej na string
+a='abcdefg'
+
+new_a=list(a)
+print(new_a)
+new_a[1]='X'
+print(new_a)
+
+a=''.join(new_a) # po³¹czenie elementów listy w ci¹gu do stringa
+print(a)
+
+#zadanie 3
+#napisz kod, który zaprezentuje najwa¿niejsze ró¿nice miêdzy list¹ a tupl¹
+L=[1,2,3,True, (1,2)]
+T=(1,2,3,False,[1,'x','y'])
+
+L[1]='emil'
+print(L)
+
+T[1]='emil'
+print(T)
+
+#zadanie 4
+# szafki, która ma 3 szuflady, a w ka¿dej z nich 3 przegródki?
+# Stwórz taki model i umieœæ stringa "d³ugopis"
+# w œrodkowej przegródce œrodkowej szuflady.
+szafka=[[[],[],[]],[[],[],[]],[[],[],[]]]
+
+szafka[1][1]='d³ugopis'
+print(szafka)
+
+A=[[1,2],[3,4]]
+A[1][0]='trzy'
+print(A)
+
+#zadanie 5
+#z poni¿szej listy wypisz stringa 'schowany'
+
+L = [[34, False], [0], [('abc', 123), {'a': 1, 'x': (True, 'schowany', 5)}]]
+print(L[2][1]['x'][1])
+
+#zadanie 6
+#jakiej struktury danych u¿y³byœ do zapisania numerów telefonów
+# wszystkich klientów firmy i odpowiadaj¹cych im nazwisk. Wybierz strukturê tak,
+# aby sprawdzenie w³aœciciela numeru telefonu nie zajmowa³o du¿o czasu.
+
+# Nastêpnie stwórz przyk³adow¹ strukturê przechowuj¹c¹ poni¿sze informacje:
+# 123456789 - Jan Kot
+# 999888777 - Anna Lis
+# 111222333 - Jan Kot
+# Odczytaj nazwisko w³aœciciela numeru 12345678
+D={123456789:'Jan Kot', 123456787:'Anna Lis',123456765:'Jan Kot'}
+print(D[123456789])
+
+#zadanie 7
+#które z poni¿szych s³owników zosta³y utworzone nieprawid³owo?
+A = {1: 1, 2: 4, 3: 9}
+B = {'imie': 'Anna', 'nazwisko': 'Kowalska'}
+# C = {[4, 5]: [16, 25]}    # lista jako element mutowalny nie mo¿e byc kluczem s³ownika!
+D = {(4, 5): [16, 25]}
+# E = {{1:2}: 'jeden_dwa'}  # s³ownik jako element mutowalny równiez nie mo¿e byæ kluczem!
+
+#zadanie 8
+#co zostanie wypisane w wyniku poni¿szego kodu?
+D={1:'Ala',2:'ma',3:'kota'}
+
+for key in D:
+    print(D[key])
+#wypisane zostaj¹ key. Zale¿y to od wersji pythona
+#w pythonie 2-3.5 s³ownik nie trzyma kolejnoœci
+#w pythonie 3.6 i nowsze, s³ownik trzyma kolejnoœæ
+
+#zadanie 9
+# dla danego stringa x stwórz s³ownik
+# przechowuj¹cy informacjê ile razy dana litera wyst¹pi³a w stringu
+x='myszy dokazuj¹gdykotanieczuj¹'
+D={}
+for litera in x:
+    if litera not in D.keys():
+        D[litera]=1
+    else:
+        D[litera]+=1
+print(D)
+
+#lub
+#sprawdŸ czy 7430 znajduje siê w zmiennej S
+S = {x:x+1 for x in range(10000) if x%23 == 0}
+
+print(S)
+if 7430 in S.keys():
+    print(True)
+else:
+    print(False)
+
+#zadanie 10
+#sprawdŸ czy któraœ z liter wyst¹pi³a w stringu 4 razy
+#jeœli tak, wypisz True, je¿lie nie, wypisz False
+litery = {'m': 1, 'y': 3, 's': 1, 'z': 3, 'd': 2, 'o': 2, \
+          'k': 2, 'a': 2, 'u': 2, 'j': 2, '¹': 2, 'g': 1, \
+          't': 1, 'n': 1, 'i': 1, 'e': 1, 'c': 1}
+
+print(list(litery.values()))
+print(list(litery.keys()))
+
+if 4 in litery.values():
+    print(True)
+else:
+    print(False)
+
+#lub
+
+print(True if 4 in litery.values() else False)
+
+
+pensje = {'ksiegowa': 5000, 'kierowca': 4500, 'recepcjonistka': 4000}
+#print(sum(pensje.values()))
+sum_pensji=sum(pensje.values())
+print(f'Suma pensji wynosi {sum_pensji} z³')
+
+#zadanie 11
+#wydrukuj listê w kolejnoœci odwróconej
+jêzyki=['Python','Java','C#','Ruby']
+
+#1
+jêzyki.reverse() #wada, odwrócona zosta³a tak¿e lista oryginalna
+print(jêzyki)
+#lub
+jêzyki_odwrócone=jêzyki
+print(jêzyki_odwrócone)
+
+#2
+jêzyki_odwrócone=list(reversed(jêzyki))
+print(jêzyki)
+
+#3
+jêzyki_odwrócone=jêzyki[::-1]
+print(jêzyki)
+
+#4
+jêzyki_odwrócone=[]
+for jêzyki in jêzyki:
+    jêzyki_odwrócone.insert(0,jêzyki)
+print(jêzyki_odwrócone)
+
+#zadanie 12
+#sprawdŸ czy podane s³owo jest palindromem (mo¿ne je czytaæ tak saomo od przodu i ty³u)
+def new (slowo):
+    new=slowo[::-1]
+    if slowo==new:
+        return True
+    else:
+        return False
+
+print(new('kajak'))
+print(new('emil'))
+
+#zadanie 13
+# stwórz dwie listy:
+# A - zawieraj¹c¹ liczby od 1 do 10
+# B - zawieraj¹c¹ co trzeci¹ liczbê z zakresu od 100 do 1
+# w obu przypadkach mo¿esz napisaæ tylko jedn¹ linijkê kodu
+
+A=list(range(1,11))
+print(A)
+
+B=list(range(100,0,-3))
+print(B)
+
+# w python 3.0 range jest obiektem
+# w pythonie poni¿ej 3.0 range to funkcja\
+
+
+# Stwórz listê R zawieraj¹c¹ co drug¹ liczbê z zakresu od -5 do 5 (w³¹cznie).
+R = list(range(-5,6,2))
+print(R)
+
+#zadanie 14
+# Wypisz pierwsze 5 elementów listy L.
+# Wypisz co drug¹ literê stringa s, zaczynaj¹c od ostatniej i cofaj¹c siê do poczatku.
+
+L = [11, 22, 33, 44, 55, 66, 77, 88, 99, 1010]
+s = 'a nMozh^tKysPW 9êxi b$uML'
+
+print(L[:5])
+print(s[-1::-2])
+
+
+# Wypisz co trzeci¹ literê stringa a, zaczynaj¹c od przedostatniej i cofaj¹c siê do poczatku.
+a = '!ooe&sj7?czaa()lmxuo,t2fa^4rtngk'
+print(a[-2::-3])
+
+#zadanie 15
+# napisz funkcjê, która sprawdzi czy podany string
+# zaczyna siê s³owem "python" i koñczy rozszerzeniem ".py"
+# Przetestuj ni¹ stringi:
+a = "python_moj_kod.py"
+b = "python_notatki.txt"
+
+def sprawdz_czy_python(nazwa_pliku):
+    if nazwa_pliku[:6]== 'python' and nazwa_pliku[-3:]=='.py':
+        return True
+    else:
+        return False
+
+print(sprawdz_czy_python(a))
+print(sprawdz_czy_python(b))
+
+# Napisz kod, który przy u¿yciu sliceów wypisze SZEŒÆ ostatnich znaków ze stringa z.
+z = "In the face of ambiguity, refuse the temptation to guess."
+print(z[-6:])
+
+#zadanie 16
+#wypisz podan¹ listê imion przed ka¿dym dodaj¹c kolejny numer.
+# Zacznij numerowanie od 1.
+
+imiona = ['Adam', 'Stanis³aw', 'Maria', 'Zofia', 'Miko³aj']
+
+numer=1
+for imie in imiona:
+    print(numer,imie)
+    numer+=1
+
+print('\n')
+#lub
+
+for numer, imie in enumerate(imiona):
+    print(numer+1,imie)
+
+# Wypisz zawartoœæ listy A dodaj¹c przed ka¿dym elementem kolejny numer.
+# Zacznij numerowanie od 0.
+
+A = [1, 1, 4, 9]
+
+for numer, cyfra in enumerate(A):
+    print(numer+1,cyfra)
+
+#zadanie 17
+# znajdŸ ró¿nicê miêdzy najwiêksz¹ a najmniejsz¹ wartoœci¹
+# na poni¿szej liœcie.
+# Zadbaj o to aby rozwi¹zanie by³o efektywne.
+
+A = [4, 5, 7, -3, 2, 8, -10, 15]
+
+A.sort()
+print(A)
+print(min(A))
+print(max(A))
+print(A[-1]-A[0])
+#lub
+print(max(A)-min(A))
