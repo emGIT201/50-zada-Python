@@ -296,3 +296,192 @@ else:
 print(True if max(A) > 99 else False)
 
 #zadanie 18
+# napisz funkcjê, która bêdzie pobieraæ dwie liczby
+# i sprawdzaæ czy pierwsza z nich jest podzielna przez drug¹
+
+#dzielenie modulo. U¿ywa siê po to aby sprawdziæ czy jedna liczba jest podzielna przez drug¹
+print(10%2)
+print(10%3)
+
+def sprawdz_podzielnosc(a,b):
+    return (a % b==0)
+
+print(sprawdz_podzielnosc(10,2))
+print(sprawdz_podzielnosc(10,3))
+
+# SprawdŸ czy liczba a jest podzielna przez b. Jeœli tak - wypisz True, jeœli nie - False.
+
+a = 123454321
+b = 11111
+
+print(sprawdz_podzielnosc(a,b))
+
+#zadanie 19
+#  wyjasnij jak dzia³a poni¿sza funkcja.
+# Wyjaœnij sk¹d wziê³y siê wyniki zwrócone przez poszczególne wywo³ania funkcji.
+
+def dodaj_do_listy(n, lista=[]):  # lista=[] - argument domyœlny funkcji
+    lista.append(n)               # dodaj n do koñca listy lista
+    print(lista)
+
+dodaj_do_listy(1)
+dodaj_do_listy(2)
+dodaj_do_listy('emil')
+dodaj_do_listy(4,[1,2])
+dodaj_do_listy(5)
+
+#lub
+def imie (imie='Emil'):
+    print(imie)
+imie()
+
+#zadanie 20
+#co otrzymamy w wyniku wydrukowania zawartoœci poni¿szych zmiennych?
+#list comprehension pozwalaj¹ na tworzenie kodów w jednej linijce
+
+L = [1,2,3,4,5,6]
+
+L1 = [x for x in range(5)]        # wpisz do listy L1 elementy z zakresu od 0 do 4
+L2 = [x**2 for x in L]            # wpisz do listy L2 elementy z listy L podniesione do kwadratu
+L3 = [x for x in L if x % 2 == 0] # wpisz do listy L3 elementy z listy L, tylko jeœli dany element jest podzielny przez 2
+L4 = ['Parzysta' if x%2 == 0 else 'Nieparzysta' for x in range(5)]
+                                  # wpisz do listy L4 'Parzysta' lub 'Nieparzysta' w zale¿noœci od tego czy kolejny element
+                                  # z zakresu 0 do 4 jest podzielny lub nie jest podzielny przez 2
+L5 = [(x, x+10) for x in L]       # wpisz do listy L5 dwuelementowe tuple, które na indeksie 0 maj¹ kolejny element z lsty L
+                                  # a na indeksie 1 ten sam element zwiêkszony o 10
+D1 = {x:x % 2 == 0 for x in L}    # wpisz do s³ownika D1 pary klucz:wartoœæ, gdzie kluczem s¹ elementy z listy L
+                                  # a wartoœciami True lub False, w zale¿noœci od tego czy dany klucz jest podzielny przez 2
+
+print(L1)
+print(L2)
+print(L3)
+print(L4)
+print(L5)
+
+#zadanie 21
+# co wydrukuje siê w wyniku wykonania poni¿szego kodu?
+
+print(1 == True) # == to operator porównania wartoœci
+print(1 is True) # is to operator porównania identycznoœci/to¿samoœci
+
+print(id(1), id(1), id(True))  # wydrukuj id integera 1 i booleana True
+
+print(2 ** 3 == 10 - 2)        # wydrukuj wynik porównania wartoœci dwóch równañ
+
+A = [1,2,3]                    # stworzenie dwóch list o identycznej zawartoœci
+B = [1,2,3]                    # i przypisanych do innych zmiennych A i B
+print(A == B)                  # porównanie wartoœci list A i B
+print(A is B)                  # porównanie identycznoœci/to¿samoœli list A i B
+
+a = 'kotek'                    # stworzenie dwóch stringów o identycznej zawartoœci
+b = 'kotek'                    # i przypisanych do innych zmiennych a i b
+print(a == b)                  # porównanie wartoœci stringów a i b
+print(a is b)                  # porównanie identycznoœci/to¿samoœci stringów a i b
+
+#zadanie 22
+#co zostanie wydrukowane
+print(False is False)
+print(True is False)
+print(False is False is False) #porównanie ³añcuchowe
+print(1<3==5)
+print(3+2>5<6)
+
+# zadanie 23
+# czym jest lambda?
+# Napisz przyk³adowy kod wykorzystuj¹cy lambdê.
+
+# lambda argument : wyra¿enie
+# lambda x:x+2
+#sortowanie po key
+L = [('Anna',82), ('Robert',33), ('Artur',40), ('Feliks',56)]
+L_posortowana=sorted(L, key=lambda x:x[1])
+print(L_posortowana)
+
+# Posortuj podan¹ listê stringów jako kryterium sortowania przyjmuj¹c ostatni¹ literê ka¿dego stringa.
+S = ['Anna', 'Robert', 'Artur', 'Feliks']
+S_posortowana =sorted(S, key= lambda x:x[-1])
+print(S_posortowana)
+
+#zadanie 24
+# co zostanie wypisane w wyniku wykonania poni¿szego kodu?
+A=[1,2,3,4,5]
+B=A
+C=A[:]
+B[0]=111
+print(B)
+print(A)
+print(C)
+
+print(id(A))
+print(id(B))
+print(id(C))
+
+L=[0,1,2,3]
+
+K=L[:] #kopia listy L
+L[1]='jeden'
+K[1]='JEDEN'
+
+print(L)
+print(K)
+
+#zadanie 25
+# co zostanie wypisane w wyniku wykonania poni¿szego kodu?
+
+x = 10             # zmienna globalna
+
+def f():
+    x=11    #zmianna lokalna, istnieje tylko wewn¹trz funkcji
+    print(x)
+
+f()
+print(x)
+
+#zadanie 26
+# - stwórz plik o nazwie "moj_plik.txt"
+# - wpisz do niego liczb od 1 do 100, ka¿d¹ w nowej linijce
+# - otwórz plik i zapisz jego zawartosc do listy z_pliku
+
+with open('moj_plik.txt','w') as f:
+   for n in range(1,101):
+       f.write(str(n) + '\n')
+
+with open('moj_plik.txt','r') as f:
+    z_pliku=f.readline()
+
+print(z_pliku)
+
+#odczytywanie pliku
+with open ('przeczytaj_mnie.txt','r') as f:
+    print(f.read())
+
+# Zadanie 27
+# Objêtoœæ graniastos³upa oblicza siê na podstawie wzoru: V = a * b * h
+# a i b to d³ugoœci boków jego podstawy, a h to wysokoœæ.
+# Poni¿szy kod znajduje najwiêkszy graniastos³up jaki mo¿emy utworzyæ
+# z elementów list A, B i H.
+# Ile operacji zostane wykonane w wyniku uruchomienia tego kodu?
+# W jaki sposób mo¿na by to zadanie rozwi¹zaæ bardziej efektywnie?
+
+import random
+A = [random.randint(0,100) for i in range(5)]     # tworzenie piêcioelementowej listy losowych integerów z zakresu od 0 do 100
+B = [random.randint(0,100) for i in range(5)]
+H = [random.randint(0,100) for i in range(5)]
+
+print(A)
+print(B)
+print(H)
+
+max_v = 0                                         # zmienna do przechowywania maksymalnej znalezionej objêtoœci graniastos³upa
+for a in A:                                       # dla ka¿dego elementu w liœcie A
+    for b in B:                                   # dla ka¿dego elementu w liœcie B
+        for h in H:                               # dla ka¿dego elementu w liœcie H
+            if a * b * h > max_v: # 125 operacji  # jeœli a*b*h jest wiêksze ni¿ maksymalna znaleziona objêtoœæ
+                max_v = a * b * h                 # do zmiennej max_v przypisz wynik mno¿enia a*b*h
+print(max_v)
+
+
+print(max(A) * max(B) * max(H)) # 15 operacji     # pomnó¿ przez siebie najwiêksze elementy list A, B i H
+
+# uproszczenie zagnie¿dzonych pêtli for mo¿liwe przy u¿yciu biblioteki itertools
+# wiêcej w materia³ach dodatkowych
