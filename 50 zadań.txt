@@ -488,4 +488,4 @@ print(max(A) * max(B) * max(H)) # 15 operacji     # pomnó¿ przez siebie najwiêks
 # wiêcej w materia³ach dodatkowych
 
 
-#zadanie 28
+#zadanie  28
