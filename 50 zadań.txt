@@ -484,4 +484,8 @@ print(max_v)
 print(max(A) * max(B) * max(H)) # 15 operacji     # pomnó¿ przez siebie najwiêksze elementy list A, B i H
 
 # uproszczenie zagnie¿dzonych pêtli for mo¿liwe przy u¿yciu biblioteki itertools
+
 # wiêcej w materia³ach dodatkowych
+
+
+#zadanie 28
